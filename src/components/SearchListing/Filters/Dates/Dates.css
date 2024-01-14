@@ -1,0 +1,18 @@
+@import '../../../../components/common.css';
+@import '../../../../components/variables.css';
+
+.btnSecondary {
+	border-color: var(--btn-secondary-bg) !important;
+	background-color: var(--btn-secondary-bg) !important;
+	color: #ffffff !important;
+}
+.btnSecondary:hover,  .btnSecondary:focus, .btnSecondary:active {
+	border-color: var(--btn-secondary-hover-bg) !important;
+	background-color: var(--btn-secondary-hover-bg) !important;
+	color: var(--btn-secondary-color) !important;
+}
+.clearMobileBtn{
+	color: var(--btn-secondary-bg) !important;
+	text-decoration: underline;
+	background: transparent !important;
+}

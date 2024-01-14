@@ -1,0 +1,193 @@
+
+import React from 'react';
+import PropTypes from 'prop-types';
+import { FormattedMessage, injectIntl } from 'react-intl';
+import { connect } from 'react-redux';
+import { change, submit as submitForm, formValueSelector, reduxForm } from 'redux-form';
+import withStyles from 'isomorphic-style-loader/lib/withStyles';
+import s from './ListingItem.css';
+
+import cx from 'classnames';
+import * as FontAwesome from 'react-icons/lib/fa';
+
+import CurrencyConverter from '../../CurrencyConverter';
+import ListingPhotos from '../ListingPhotos';
+import StarRating from '../../StarRating';
+import WishListIcon from '../../WishListIcon';
+
+// Locale
+import messages from '../../../locale/messages';
+
+import { formatURL } from '../../../helpers/formatURL';
+import { isRTL } from '../../../helpers/formatLocale';
+
+class ListingItem extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.handleMouseOver = this.handleMouseOver.bind(this);
+    this.handleMouseOut = this.handleMouseOut.bind(this);
+  }
+
+  static propTypes = {
+    formatMessage: PropTypes.func,
+    id: PropTypes.number,
+    basePrice: PropTypes.number,
+    currency: PropTypes.string,
+    title: PropTypes.string,
+    beds: PropTypes.number,
+    personCapacity: PropTypes.number,
+    roomType: PropTypes.string,
+    listPhotos: PropTypes.array,
+    coverPhoto: PropTypes.number,
+    bookingType: PropTypes.string.isRequired,
+    reviewsCount: PropTypes.number,
+    reviewsStarRating: PropTypes.number,
+    wishListStatus: PropTypes.bool,
+    isListOwner: PropTypes.bool
+  };
+
+  handleMouseOver(value) {
+    const { change } = this.props;
+    change('SearchForm', 'markerHighlight', { 'id': value, 'hover': 'true' });
+  }
+
+  handleMouseOut(value) {
+    const { change } = this.props;
+    change('SearchForm', 'markerHighlight', {});
+  }
+
+  render() {
+    const { formatMessage } = this.props.intl;
+    const {
+      id,
+      basePrice,
+      currency,
+      title,
+      beds,
+      personCapacity,
+      roomType,
+      coverPhoto,
+      listPhotos,
+      bookingType,
+      reviewsCount,
+      reviewsStarRating,
+      wishListStatus,
+      isListOwner,
+      isMapShow,
+      personalized,
+      personCount,
+      locale
+    } = this.props;
+
+
+    let bedsLabel = 'bed';
+    let guestsLabel = 'guest';
+    let heartIcon = 'heartIcon';
+    let personalizedURL = '', startDate, endDate, guestCount;
+
+    if (beds > 1) {
+      bedsLabel = 'beds';
+    }
+
+    if (personCapacity > 1) {
+      guestsLabel = 'guests';
+    }
+    let starRatingValue = 0;
+    if (reviewsCount > 0 && reviewsStarRating > 0) {
+      starRatingValue = Math.round(reviewsStarRating / reviewsCount)
+    }
+    let activeItem = 0, photoTemp, photosList = listPhotos.slice();
+    if (listPhotos && listPhotos.length > 1) {
+      listPhotos.map((x, y) => { if (x.id === coverPhoto) activeItem = y });
+      if (activeItem > 0) {
+        photoTemp = photosList[0];
+        photosList[0] = photosList[activeItem];
+        photosList[activeItem] = photoTemp;
+      }
+    }
+    startDate = personalized && personalized.startDate ? "?&startdate=" + personalized.startDate : '';
+    endDate = personalized && personalized.endDate ? "&enddate=" + personalized.endDate : '';
+    guestCount = personCapacity && personalized.startDate && personalized.endDate ? "&guests=" + personCount : '';
+    personalizedURL = startDate + endDate + guestCount;
+
+    return (
+      <div className={cx(s.listItemContainer)} onMouseOver={() => this.handleMouseOver(id)} onMouseOut={() => this.handleMouseOut(id)}>
+        {
+          !isListOwner && <WishListIcon listId={id} key={id} isChecked={wishListStatus} heartIcon={heartIcon} />
+        }
+
+        <ListingPhotos
+          id={id}
+          coverPhoto={coverPhoto}
+          listPhotos={photosList}
+          formatURL={formatURL}
+          title={title}
+          isMapShow={isMapShow}
+          personalizedURL={personalizedURL}
+          rtl={isRTL(locale)}
+        />
+
+        <div className={s.listInfo}>
+          <a className={s.listInfoLink} href={"/rooms/" + formatURL(title) + '-' + id + personalizedURL} target={"_blank"}>
+            <div>
+              <div className={s.listFlex}>
+                <div className={cx(s.textEllipsis, s.infoPrice, s.infoText, s.infoSpaceTop1, 'textWhite')}>
+                  <span className={s.fontWeight}>
+                    {
+                      <CurrencyConverter
+                        amount={basePrice}
+                        from={currency}
+                      />
+                    }
+                  </span>
+
+                  {' '}<span className={s.nightCss}>/ <FormattedMessage {...messages.perNight} /></span>
+                  {
+                    bookingType === "instant" && <span><FontAwesome.FaBolt className={s.instantIcon} /></span>
+                  }
+                </div>
+                <div className={cx(s.textEllipsis, s.infoReview, s.infoSpaceTop1, 'textWhite')}>
+                  {starRatingValue > 0 && <div className={cx(s.reviewStar, 'small-star-rating')}>
+                    <StarRating
+                      value={starRatingValue}
+                      name={'review'}
+                      className={s.displayInline}
+                      starColor={'#484848'}
+                      emptyStarColor={'#cccccc'}
+                    />
+                    <span className={s.textInline}>&nbsp; {starRatingValue + ' '}
+                    </span>
+                  </div>}
+                </div>
+              </div>
+              <div className={cx(s.textEllipsis, s.listingTitle, 'textWhite')}>
+                <span className={'textReversing'}>{title}</span>
+              </div>
+              <div className={cx(s.textEllipsis, s.infoDesc, s.infoText, s.infoSpace)}>
+                <div className={cx(s.listingInfo, 'textWhite')}>
+                  <span class="roomTypeRtl">{roomType}</span>
+                  {beds > 0 && <span><span>&nbsp;/&nbsp;</span>{beds} {beds > 1 ? formatMessage(messages.beds) : formatMessage(messages.bed)}</span>}
+                  {/* <span>&nbsp;&#183;&nbsp;</span>
+                    <span>{personCapacity} {guestsLabel}</span> */}
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    );
+  }
+}
+
+const mapState = (state) => ({
+  isMapShow: state.personalized.showMap,
+  personalized: state.personalized,
+  locale: state.intl && state.intl.locale
+});
+
+const mapDispatch = {
+  change
+};
+
+export default injectIntl(withStyles(s)(connect(mapState, mapDispatch)(ListingItem)));

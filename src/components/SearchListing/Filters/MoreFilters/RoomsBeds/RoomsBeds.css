@@ -1,0 +1,7 @@
+@import '../../../../../components/common.css';
+.iconCss img{
+    margin: -5px 0px 0 0;
+}
+.iconCss{
+    padding-right: 11px;
+}

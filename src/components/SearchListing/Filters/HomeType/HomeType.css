@@ -1,0 +1,50 @@
+@import '../../../../components/common.css';
+
+.checkboxSection {
+    width: 2%;
+    padding-right: 10px;
+}
+
+.NHtype {
+    padding: 3px 0 0;
+    vertical-align: top;
+}
+
+.NhName {
+    padding: 0 0 0 8px;
+    vertical-align: top;
+}
+
+.btnSecondary,
+.btnSecondary:focus {
+    border-color: var(--btn-secondary-bg) !important;
+    background-color: var(--btn-secondary-bg) !important;
+    color: #ffffff !important;
+}
+
+.checkBoxImage {
+    padding: 0 7px 0 2px;
+}
+
+.textSection {
+    padding-left: 8px;
+}
+
+.imgSection {
+    width: 100%;
+    max-width: 25px;
+}
+.homeTypeFlex{
+    display: flex;   
+}
+.desTop{
+    padding-top: 3px;
+}
+.iconLeft{
+    margin-left: 3px;
+}
+@media screen and (max-width:767px) {
+    .homeTypeFlex {
+        align-items: center;
+    }    
+}

@@ -1,0 +1,27 @@
+{
+  "development": {
+    "username": "root",
+    "database_devop": "kvarenda",
+    "password_devop": "QWERTY123PP",
+    "database": "rentall_new",
+    "password": "root",
+    "password_old": "Root123!",
+    "database_old": "rentall_v_3_4_2",
+    "host": "172.17.0.3",
+    "dialect": "mysql"
+  },
+  "test": {
+    "username": "root",
+    "password": null,
+    "database": "database_test",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  },
+  "production": {
+    "username": "root",
+    "password": null,
+    "database": "database_production",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  }
+}

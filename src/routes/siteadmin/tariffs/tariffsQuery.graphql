@@ -1,0 +1,15 @@
+query getTariffs($currentPage: Int, $searchList: String) {
+  getTariffs() {
+    tariffsData {
+      id
+      name
+      description
+      host_commision
+      guest_commision
+      host_is_percent
+      guest_is_percent
+      is_only_commission
+      created_at
+    }
+  }
+}

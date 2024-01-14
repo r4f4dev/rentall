@@ -1,0 +1,18 @@
+
+.textLead {
+	color: #484848;
+	line-height: 1.1;
+}
+.widthImg{
+	width: 200px;
+}
+.textCenter{
+	text-align: center;
+	color: #707070;
+	max-width: 396px;
+	margin: 20px auto;
+	font-size: 18px;
+}
+.textMuted{
+	margin: 20px 0;
+}

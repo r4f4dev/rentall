@@ -1,0 +1,89 @@
+@import '../../helpers.css';
+@import '../../variables.css';
+/** Common **/
+.textEllipsis {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+/** Common **/
+/* List Item - Start **/
+.listItemContainer {
+	position: relative;
+}
+.listInfoLink {
+	cursor: pointer;
+	display: block;
+	text-decoration: none !important;
+}
+.infoText {
+	color: #484848;
+	margin: 0px;
+	word-wrap: break-word;
+	line-height: normal;
+	padding-top: 0px;
+	padding-bottom: 0px;
+	display: inline;
+}
+.infoPrice {
+	font-size: 15px;
+}
+.infoReview {
+	font-size: 12px;
+}
+.infoTitle {
+	font-size: 15px;
+	font-weight: 700;
+	margin-bottom: 4px;
+}
+.infoDesc {
+	font-weight: 200;
+	font-size: 14px;
+	color: #767676;
+}
+.listingInfo {
+	font-size: 14px;
+	color: #707070;
+	margin-top: 3px;
+}
+.infoSpace {
+	display: flex;
+	justify-content: space-between;
+	padding-top: 12px;
+	margin: 0;
+	align-items: center;
+	padding-bottom: 3px;
+}
+.reviewStar {
+	display: block;
+	position: relative;
+	top:3px;
+}
+.reviewText {
+	font-size: 16px;
+	vertical-align: top;
+}
+.displayInline {
+	display: inline;
+}
+.displayInlineBlock {
+	display: inline-block;
+}
+.instantIcon {
+	color: #ffb400;
+	height: 16px;
+	width: 16px;
+}
+.pricingText{
+	color: var(--common-text-color);
+	font-size: 22px;
+	font-weight: 500;
+}
+.titletext{
+	color: var(--common-text-color);
+	font-size: 18px;
+	white-space: nowrap;
+    overflow: hidden;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+}

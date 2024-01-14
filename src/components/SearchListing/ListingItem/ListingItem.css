@@ -1,0 +1,162 @@
+/** Common **/
+@import '../../variables.css';
+
+.textEllipsis {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+.pullRight {
+	float: right;
+}
+/** Common **/
+
+/* List Item - Start **/
+
+.listItemContainer {
+	position: relative;
+}
+.listPhotoCover {
+	display: block;
+	height: 345px;
+	backface-visibility: hidden;
+	position: relative;
+	vertical-align: middle;
+	overflow: hidden;
+	text-align: center;
+}
+.listPhotoMedia {
+	position: absolute;
+	right: 0;
+	left: 0;
+	bottom: 0;
+	top: 0;
+}
+.imgResponsive {
+	height: 100%;
+	width: auto;
+}
+.listInfo {
+	padding: 15px 0 0;
+}
+.listInfoLink {
+	cursor: pointer;
+	display: block;
+	text-decoration: none !important;
+}
+.listingInfo {
+	word-wrap: break-word;
+	font-size: 14px;
+	color: #707070;
+	margin: 3px 0 0;
+	font-weight: 400;
+
+}
+.displayInline {
+	display: inline-block;
+}
+.textInline {
+	display: inline-block;
+	vertical-align: top;
+}
+.listingTitle {
+	word-wrap: break-word;
+	font-size: 18px;
+	color: var(--common-text-color);
+	margin: 3px 0 0;
+
+}
+.infoSpace {
+	margin-top: 0px;
+	margin-bottom: 0px;
+
+}
+.infoSpaceTop1 {
+	margin-top: 2px
+}
+.infoText {
+	color: #484848;
+	word-wrap: break-word;
+	line-height: 18px;
+	padding-top: 0px;
+	padding-bottom: 0px;
+	display: inline;
+}
+.infoPrice {
+	word-wrap: break-word;
+	font-size: 22px;
+	color: var(--common-text-color);
+	font-weight: normal;
+	display: inline;
+}
+.infoReview {
+	word-wrap: break-word;
+	font-size: 16px;
+	line-height: 16px;
+	letter-spacing: normal;
+	color:  var(--common-text-color);
+	display: inline;
+}
+.infoTitle {
+	font-size: 19px;
+}
+.infoDesc {
+	font-weight: 200;
+	font-size: 14px;
+	color: #767676;
+}
+.wishListContainer {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+}
+.wishListBtn {
+	font-size: 36px;
+	color: #FFFFFF;
+}
+.wishListBtn:hover,
+.wishListBtn:focus {
+	color: #58595B;
+}
+.activeWishList {
+	color: #58595B;
+}
+.reviewStar {
+	display: block;
+	position: relative;
+	text-align: right;
+}
+.reviewText {
+	font-size: 14px;
+}
+.instantIcon {
+	color: #ffb400;
+	height: 16px;
+	width: 16px;
+}
+.nightCss{
+	font-size: 16px;
+}
+.fontWeight{
+	font-weight: 600;
+}
+.listFlex{
+	display: flex;
+	justify-content: space-between;
+}
+@media screen and (max-width: 1280px) {
+	.listPhotoCover {
+		height: 200px;
+	}
+}
+@media screen and (max-width: 800px) {
+	.listPhotoCover {
+		height: 345px;
+	}
+}
+@media screen and (max-width: 480px) {
+	.listPhotoCover {
+		height: 215px;
+	}
+}
+/* List Item - End */

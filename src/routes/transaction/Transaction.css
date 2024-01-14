@@ -1,0 +1,9 @@
+.secondContainer{
+    width: 100%;
+    max-width: 783px;
+}
+@media screen and (min-width:1281px) {
+    .transactionGrid{
+        grid-template-columns: 267px 783px;
+    }
+}

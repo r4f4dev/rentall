@@ -1,0 +1,63 @@
+@import '../../../../../components/common.css';
+
+.checkBoxSection {
+    width: 1%;
+    padding-right: 10px;
+    vertical-align: top;
+}
+
+.imgSection {
+    width: 100%;
+    max-width: 25px;
+    position: relative;
+    top: -2px;
+}
+
+.homeTypeFlex {
+    display: flex;
+}
+
+.checkBoxImage {
+    padding: 0 7px 0 0;
+}
+
+.checkBoxSection {
+    padding-top: 0px
+}
+
+.desTop {
+    padding-top: 3px;
+}
+
+.paddingBottom {
+    padding-bottom: 18px;
+}
+
+.paddingBottom:last-child {
+    padding-bottom: 0px;
+}
+
+.vtrTop {
+    vertical-align: top;
+}
+
+.iconLeft {
+    margin-left: 3px;
+}
+.toggleLink{
+    outline: 0 !important;
+    text-decoration: underline;
+}
+@media (max-width:1023px) and (min-width:768px) {
+    .boxSectionPadding {
+        width: 1%;
+        padding-right: 10px;
+        vertical-align: top;
+    }
+}
+
+@media screen and (max-width:767px) {
+    .homeTypeFlex {
+        align-items: center;
+    }
+}

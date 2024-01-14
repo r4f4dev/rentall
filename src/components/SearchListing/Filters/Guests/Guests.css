@@ -1,0 +1,15 @@
+@import '../../../../components/common.css';
+.capitalizeText {
+    text-transform: capitalize;
+}
+.alignCenter{
+    text-align: center;
+}
+.borderRadius {
+    border-radius: 50px !important;
+}
+.clearMobileBtn{
+	color: var(--btn-secondary-bg) !important;
+	text-decoration: underline;
+    background: transparent !important;
+}

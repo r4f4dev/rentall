@@ -1,0 +1,14 @@
+[
+    {
+        "relation": [
+            "delegate_permission/common.handle_all_urls"
+        ],
+        "target": {
+            "namespace": "android_app",
+            "package_name": "com.rentall.radicalstart",
+            "sha256_cert_fingerprints": [
+                "74:47:9A:BF:3E:33:8D:50:EA:55:21:4A:5C:AB:78:EE:B7:90:DC:4A:52:32:BB:56:1F:11:21:11:C2:93:1A:94"
+            ]
+        }
+    }
+]

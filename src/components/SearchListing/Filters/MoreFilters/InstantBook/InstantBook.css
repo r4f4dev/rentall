@@ -1,0 +1,12 @@
+@import '../../../../../components/common.css';
+.alignRight{
+    text-align: right;
+    position: relative;
+    top: 14px;
+}
+
+@media screen and (max-width:767px) {
+    .marginBottomNone{
+        margin-bottom: 0;
+    }
+}

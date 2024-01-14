@@ -1,0 +1,45 @@
+@import '../../../../components/common.css';
+
+.priceRangeContainer {
+    padding: 0px 12px;
+}
+.boxCss{
+    width: 148px;
+    height: 57px;
+    border: 1px solid var(--border-color);
+    border-radius: 3px;
+    display: inline-block;
+    padding: 23px 0 0 15px;
+    position: relative;
+    cursor: default;
+}
+.lineCss{
+    display: inline-block;
+    margin: 0 6px;
+    position: relative;
+    top: -8px;
+}
+.titleCss{
+    font-size: 17px;
+    margin-bottom: 17px;
+}
+.minMaxCss{
+    position: absolute;
+    left: 15px;
+    top: 7px;
+    font-size: 11px;
+    color: var(--common-text-Secondry-color);
+}
+.btnSecondary,
+.btnSecondary:focus {
+	border-color: var(--btn-secondary-bg) !important;
+	background-color: var(--btn-secondary-bg) !important;
+	color: #ffffff !important;
+}
+.showPrice{
+    white-space: nowrap;
+    overflow: hidden;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    display: block;
+}

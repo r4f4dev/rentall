@@ -1,0 +1,44 @@
+ mutation updateConfigSettings(
+		$pushNotificationKey: String,
+		$deepLinkBundleId: String,
+		$smtpHost: String,
+		$smtpPort: String,
+		$smptEmail: String,
+		$smtpSender: String,
+		$smtpSenderEmail: String,
+		$smtpPassWord: String,
+		$twillioAccountSid: String,
+		$twillioAuthToken: String,
+		$twillioPhone: String,
+		$paypalEmail: String,
+		$paypalClientId: String,
+		$paypalSecret: String,
+		$paypalHost: String,
+		$paypalHostMode: String,
+        $maxUploadSize: String,
+        $stripePublishableKey: String
+    ) {
+        updateConfigSettings(
+            pushNotificationKey: $pushNotificationKey,
+            deepLinkBundleId: $deepLinkBundleId,
+            smtpHost: $smtpHost,
+            smtpPort: $smtpPort,
+            smptEmail: $smptEmail,
+            smtpSender: $smtpSender,
+            smtpSenderEmail: $smtpSenderEmail,
+            smtpPassWord: $smtpPassWord,
+            twillioAccountSid: $twillioAccountSid,
+            twillioAuthToken: $twillioAuthToken,
+            twillioPhone: $twillioPhone,
+            paypalEmail: $paypalEmail,
+            paypalClientId: $paypalClientId,
+            paypalSecret: $paypalSecret,
+            paypalHost: $paypalHost,
+            paypalHostMode: $paypalHostMode,
+            maxUploadSize: $maxUploadSize,
+            stripePublishableKey: $stripePublishableKey
+        ){
+            status
+            errorMessage
+        }
+    }

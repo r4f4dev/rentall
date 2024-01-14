@@ -1,0 +1,7 @@
+@import '../../../../components/common.css';
+.btnSecondary,
+.btnSecondary:focus {
+	border-color: var(--btn-secondary-bg) !important;
+	background-color: var(--btn-secondary-bg) !important;
+	color: #ffffff !important;
+}
